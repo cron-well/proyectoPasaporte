@@ -1,0 +1,90 @@
+<!-- Se solicita la creación de un formulario web de solicitud de pasaporte, utilizando JavaScript nativo y el framework Bootstrap para mejorar el diseño y la experiencia del usuario. El formulario debe incluir diferentes tipos de campos y se debe realizar la validación de cada uno de ellos a nivel de JavaScript(Campos vacios, validación de tipos, etc..). Al finalizar, el formulario deberá enviar la información ingresada y desplegar todos los datos cargados en un área de resultados. -->
+
+<!-- Dicha página debe estar cargada en un repositorio privado de GITHUB incluyendo como colaborador el siguiente correo jvillatoroh3@miumg.edu.gt -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <script>
+        function guardarFormulario(){
+            event.preventDefault(); // Evita el envío del formulario
+
+            // Captura los valores de los campos
+            const nombre = document.getElementById('nombre').value;
+            const correo = document.getElementById('correo').value;
+            const fecha = document.getElementById('fecha').value;
+            const sexo = document.getElementById('sexo').value;
+            const dpi = document.getElementById('dpi').value;
+            const card = document.querySelector("#floatingTextarea2");
+
+            // Muestra una alerta con los datos capturados
+            card.style.display = 'block'
+            card.value = `Se registraron los siguientes datos: \n`; 
+            card.value += `Nombre: ${nombre} \n`;
+            card.value += `Correo: ${correo} \n`;
+            card.value += `Fecha: ${fecha} \n`;
+            card.value += `Sexo: ${sexo} \n`;
+            card.value += `DPI: ${dpi}`;
+        }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+
+        <div class="container text-center">
+            <div class="row align-items-start">
+              <div class="col">
+              </div>
+              <div class="col">
+                <h1>PASAPORTE</h1>
+                <form class="mb-3">
+                    <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Nombres: </label>
+                    <input type="text" class="form-control" id="nombre" aria-describedby="emailHelp" required>
+                    </div>
+                    <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Correo electronico:</label>
+                    <input type="email" class="form-control" id="correo" required>
+                    </div>
+                    <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">DPI: </label>
+                    <input type="number" class="form-control" id="dpi" aria-describedby="emailHelp" required>
+                    </div>
+
+                    <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Sexo: &nbsp;&nbsp;</label>
+                    
+                    <div class="form-check form-check-inline" >
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="sexo" value="Masculino" checked>
+                        <label class="form-check-label" for="inlineRadio1">Masculino</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="sexo" value="Femenino">
+                        <label class="form-check-label" >Femenino</label>
+                      </div>                      
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Fecha: </label>
+                        <input type="date" class="form-control" id="fecha" aria-describedby="emailHelp" required>
+                        </div>
+                    <button type="submit" class="btn btn-primary" onclick="guardarFormulario()">Guardar</button>
+                </form>
+
+
+                <div class="form-floating">
+                <textarea class="form-control" placeholder="" id="floatingTextarea2" style="height: 200px; resize: none; display: none;" disabled></textarea>
+                </div>
+
+              </div>
+              <div class="col">
+              </div>
+            </div>
+          </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  </body>
+</html>
